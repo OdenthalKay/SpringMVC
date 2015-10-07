@@ -3,23 +3,32 @@ package com.tutorial.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
+import com.tutorial.config.MvcConfiguration;
+import com.tutorial.dao.IPersonDAO;
 import com.tutorial.domain.Person;
 
 @Service
 public class PersonManager implements IPersonManager {
+	@Autowired
+	IPersonDAO personDAO;
 
 	@Override
 	public List<Person> getAllPersons() {
-		List<Person> persons = new ArrayList<Person>();
-		Person p1 = new Person("kay");
-		Person p2 = new Person("max");
-		Person p3 = new Person("dennis");
-		persons.add(p1);
-		persons.add(p2);
-		persons.add(p3);
-		return persons;
+		Person p = new Person("max");
+		personDAO.save(p);
+		return null;
+	}
+
+	@Override
+	public void save(Person person) {
+		personDAO.save(person);
 	}
 
 }

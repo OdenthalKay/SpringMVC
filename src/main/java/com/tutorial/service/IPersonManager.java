@@ -6,4 +6,5 @@ import com.tutorial.domain.Person;
 
 public interface IPersonManager {
 	List<Person> getAllPersons();
+	void save(Person person);
 }

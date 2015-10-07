@@ -23,4 +23,10 @@ public class PersonController {
 		List<Person> persons = personManager.getAllPersons();
 		return persons.toString();
 	}
+
+	@RequestMapping(value = "/savePerson", method = RequestMethod.GET)
+	public void savePerson() {
+		Person person = new Person("tünnes");
+		personManager.save(person);
+	}
 }

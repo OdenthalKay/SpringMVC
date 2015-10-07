@@ -1,5 +1,11 @@
 package com.tutorial.dao;
 
-public interface IPersonDAO {
+import java.util.List;
 
+import com.tutorial.domain.Person;
+
+public interface IPersonDAO {
+	public List<Person> getAllPersons();
+
+	public void save(Person person);
 }
