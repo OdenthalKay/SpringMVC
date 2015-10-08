@@ -2,39 +2,28 @@ package com.tutorial.dao;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.tutorial.domain.Person;
 
 @Repository
-public class PersonDAO extends HibernateDAO implements IPersonDAO {
-	@Autowired
-	private SessionFactory sessionFactory;
+public class PersonDAO extends HibernateDAO<Person>implements IPersonDAO {
 
-	protected Session getSession() {
-		return sessionFactory.getCurrentSession();
-	}
-
-	@Transactional
 	@Override
-	public List<Person> getAllPersons() {
-		// findAllPersons();
-		Person person = new Person("max");
-		System.out.println(sessionFactory);
-		getSession().persist(person);
+	public Person getPersonById(int id) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Transactional
 	@Override
-	public void save(Person person) {
-		System.out.println(sessionFactory);
-		getSession().persist(person);
+	public List<Person> getAllPersons() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	@Override
+	public void savePerson(Person person) {
+		save(person);
 	}
 
 }

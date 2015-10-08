@@ -5,7 +5,9 @@ import java.util.List;
 import com.tutorial.domain.Person;
 
 public interface IPersonDAO {
-	public List<Person> getAllPersons();
+	Person getPersonById(int id);
 
-	public void save(Person person);
+	List<Person> getAllPersons();
+
+	void savePerson(Person person);
 }
