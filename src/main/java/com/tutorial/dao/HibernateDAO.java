@@ -2,6 +2,7 @@ package com.tutorial.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +16,16 @@ public class HibernateDAO<T> implements IGenericDAO<T> {
 	}
 
 	@Override
-	public T findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public T findById(String className, int id) {
+		return (T) getSession().get(className, id);
 	}
 
 	@Override
-	public List<T> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<T> findAll(String className) {
+		List<T> objects;
+	    Query query = getSession().createQuery("from " + className);
+        objects = query.list();
+		return objects;
 	}
 
 	@Override

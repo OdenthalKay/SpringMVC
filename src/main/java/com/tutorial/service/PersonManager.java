@@ -17,15 +17,19 @@ public class PersonManager implements IPersonManager {
 	@Transactional
 	@Override
 	public List<Person> getAllPersons() {
-		Person p = new Person("max");
-		personDAO.savePerson(p);
-		return null;
+		return personDAO.getAllPersons();
 	}
 
 	@Transactional
 	@Override
 	public void save(Person person) {
 		personDAO.savePerson(person);
+	}
+
+	@Transactional
+	@Override
+	public Person getPersonById(int id) {
+		return personDAO.getPersonById(id);
 	}
 
 }

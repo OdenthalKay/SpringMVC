@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+@Component
 @Entity
 public class Person {
 	@Id
@@ -13,8 +17,20 @@ public class Person {
 	@Column
 	private String fullname;
 
+	public Person() {
+	}
+	
+
 	public Person(String fullname) {
 		this.fullname = fullname;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFullname() {
@@ -27,7 +43,9 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [fullname=" + fullname + "]";
+		return "Person [id=" + id + ", fullname=" + fullname + "]";
 	}
+
+	
 
 }

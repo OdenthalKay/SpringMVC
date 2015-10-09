@@ -11,14 +11,12 @@ public class PersonDAO extends HibernateDAO<Person>implements IPersonDAO {
 
 	@Override
 	public Person getPersonById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return findById(Person.class.getName(), id);
 	}
 
 	@Override
 	public List<Person> getAllPersons() {
-		// TODO Auto-generated method stub
-		return null;
+		return findAll(Person.class.getName());
 	}
 
 	@Override
